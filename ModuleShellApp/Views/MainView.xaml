@@ -13,21 +13,33 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Text="Hello from the home page"
                Grid.Row="0"
                Grid.Column="0"
                Grid.ColumnSpan="2"/>
-        <Button Text="Load Module"
+        <Button Text="Load Test Module"
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Command="{Binding LoadModuleBtn}"/>
-        <Button Text="Press"
+        <Button Text="Load Payments Module"
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                IsVisible="{Binding ModuleLoaded}"
+                Command="{Binding LoadPaymentsModuleBtn}"/>
+        <Button Text="Press"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 Command="{Binding CallModuleBtn}"/>
+        <Button Text="Go to payments"
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                IsVisible="{Binding PaymentsModuleLoaded}"
+                Command="{Binding CallModulePaymentsBtn}"/>
      </Grid>
 </ContentPage>

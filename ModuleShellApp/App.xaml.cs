@@ -1,5 +1,6 @@
 ﻿using ModuleShellApp.ViewModels;
 using ModuleShellApp.Views;
+using PaymentsModule;
 using Prism;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -34,8 +35,16 @@ namespace ModuleShellApp
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            base.ConfigureModuleCatalog(moduleCatalog);
-            moduleCatalog.AddModule<TestModuleModule>(InitializationMode.OnDemand);
+            try
+            {
+                base.ConfigureModuleCatalog(moduleCatalog);
+                moduleCatalog.AddModule<TestModuleModule>(InitializationMode.OnDemand);
+                moduleCatalog.AddModule<PaymentsModuleModule>(InitializationMode.OnDemand);
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
         }
 
         protected override void OnStart()
